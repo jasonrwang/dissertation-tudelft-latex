@@ -1,0 +1,48 @@
+% !TeX program = xelatex
+\documentclass{0_dissertation}
+
+\begin{document}
+
+%% Specify the title and author of the thesis. This information will be used on
+%% the title page (in title/title.tex) and in the metadata of the final PDF.
+\title[Optional Subtitle]{Title}
+\author{Albert}{Einstein}
+
+%% Use Roman numerals for the page numbers of the title pages and table of
+%% contents.
+\frontmatter
+
+\include{01_title/title}
+
+%% The (optional) dedication can be used to thank someone or display a
+%% significant quotation.
+\dedication{\epigraph{Science is a wonderful thing \\ if one does not have to earn one's living at it.}{Albert Einstein}}
+
+\tableofcontents
+
+% \include{summary/summary}
+% \include{preface/preface}
+
+%% Use Arabic numerals for the page numbers of the chapters.
+\mainmatter
+
+%% Turn on thumb indices.
+\thumbtrue
+
+\include{04_chapter-1/chapter-1}
+% \include{04_chapter-2/chapter-2}
+\include{05_conclusion/conclusion}
+\include{06_epilogue/epilogue}
+\include{07_acks/acks}
+
+%% Use letters for the chapter numbers of the appendices.
+\appendix
+% \include{08_appendix-a/}
+
+%% Turn off thumb indices for unnumbered chapters.
+\thumbfalse
+
+% \include{cv/cv}
+% \include{publications/publications}
+
+\end{document}

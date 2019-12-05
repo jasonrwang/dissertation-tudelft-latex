@@ -1,15 +1,16 @@
 
 .PHONY: force-build
 
-all: dissertation.pdf
+all: 0_dissertation.pdf
 
 force-build:
 
-dissertation.pdf: force-build
-	xelatex dissertation
-	bibtex chapter-1/chapter-1
-	xelatex dissertation
-	xelatex dissertation
+0_dissertation.pdf: force-build
+	xelatex 0_dissertation
+	bibtex 04_chapter-1/chapter-1
+	bibtex 0_dissertation
+	xelatex 0_dissertation
+	xelatex 0_dissertation
 
 propositions.pdf: force-build
 	xelatex propositions
