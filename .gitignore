@@ -5,3 +5,5 @@
 *.out
 *.toc
 *.synctex.gz
+*.vscode
+*.code-workspace
