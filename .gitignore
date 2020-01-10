@@ -5,5 +5,11 @@
 *.out
 *.toc
 *.synctex.gz
-*.vscode
+.vscode
 *.code-workspace
+*.fdb_latexmk
+*.fls
+*.bcf
+*.cst
+*.run.xml
+*.pdf

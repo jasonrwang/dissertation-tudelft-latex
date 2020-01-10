@@ -16,7 +16,6 @@
 \RequirePackage[dutch,english]{babel}
 \RequirePackage{calc}
 \RequirePackage[nooneline,footnotesize]{caption}
-\RequirePackage{chapterbib}
 \RequirePackage{etaremune}
 \RequirePackage{fancyhdr}
 \RequirePackage[flushmargin,hang]{footmisc}
@@ -44,12 +43,27 @@
 \fi
 \RequirePackage{lettrine}
 \RequirePackage{metalogo}
-\RequirePackage[sectionbib,numbers,sort&compress]{natbib}
 \RequirePackage{tikz}
 \RequirePackage[noindentafter]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{pdflscape} % Actually rotate PDF pages
+\RequirePackage{multirow} % Better table formatting
+\RequirePackage{longtable} % Tables that span many
+\RequirePackage{enumitem} % Break numbered lists up
+\RequirePackage[
+    style=authoryear,
+    refsegment=chapter,
+    maxbibnames=9, % Max num names in bibliography
+    maxcitenames=2, % Max number of names for textcite command (inline)
+    giveninits=true,
+    hyperref
+    ]{biblatex}
+\RequirePackage{csquotes} % Better quote management for biblatex
+\RequirePackage{cleveref} % Better cross reference management
 
 %% If the document is not compiled with XeLaTeX, we need to use the native
 %% fonts.
@@ -460,10 +474,11 @@
 }
 
 %% Create an unnumbered reference section.
-\addto\captionsenglish{\renewcommand*\bibname{\color{title}References}}
+% \addto\captionsenglish{\renewcommand*\bibname{\color{title}References}}
 \newcommand*\references[1]{%
-    % \bibliographystyle{dissertation}%
-    \bibliographystyle{elsarticle-harv}%
+    \bibliographystyle{0_dissertation}%
+    % \bibliographystyle{elsarticle-num}%
+    % \bibliographystyle{elsarticle-harv}%
     \bibliography{#1}%
 }
 
@@ -475,3 +490,60 @@
     urlcolor = title
 }
 
+%% Declare possessive format for biblatex
+\DeclareNameFormat{labelname:poss}{% Based on labelname from biblatex.def
+  \nameparts{#1}% Not needed if using Biblatex 3.4
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}{\namepartfamily}{\namepartgiveni}{\namepartprefix}{\namepartsuffixi}}
+      {\usebibmacro{name:given-family}{\namepartfamily}{\namepartgiveni}{\namepartprefixi}{\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:given-family}{\namepartfamily}{\namepartgiven}{\namepartprefix}{\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}%
+  \ifnumequal{\value{listcount}}{\value{liststop}}{'s}{}}
+\DeclareFieldFormat{shorthand:poss}{%
+  \ifnameundef{labelname}{#1's}{#1}}
+\DeclareFieldFormat{citetitle:poss}{\mkbibemph{#1}'s}
+\DeclareFieldFormat{label:poss}{#1's}
+\newrobustcmd*{\posscitealias}{%
+  \AtNextCite{%
+    \DeclareNameAlias{labelname}{labelname:poss}%
+    \DeclareFieldAlias{shorthand}{shorthand:poss}%
+    \DeclareFieldAlias{citetitle}{citetitle:poss}%
+    \DeclareFieldAlias{label}{label:poss}}}
+\newrobustcmd*{\posscite}{%
+  \posscitealias%
+  \textcite}
+\newrobustcmd*{\Posscite}{\bibsentence\posscite}
+\newrobustcmd*{\posscites}{%
+  \posscitealias%
+  \textcites}
+
+%% Add a comma between author and year
+\DeclareDelimFormat{nameyeardelim}{\addcomma\space}
+
+%%-- et al. in italics
+\DefineBibliographyStrings{english}{
+    andothers = {\mkbibemph{et\addabbrvspace al\adddot}}
+}
+
+% Print URL only if there is no DOI
+\renewbibmacro*{doi+eprint+url}{%
+    \iftoggle{bbx:url}
+        {\iffieldundef{doi}{\usebibmacro{url+urldate}}{}}
+        {}%
+    \newunit\newblock
+    \iftoggle{bbx:eprint}
+        {\usebibmacro{eprint}}
+        {}%
+    \newunit\newblock
+    \iftoggle{bbx:doi}
+        {\printfield{doi}}
+        {}
+    }
+
+% Have non–first authors in last, first order
+\DeclareNameAlias{sortname}{family-given}

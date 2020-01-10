@@ -3,7 +3,7 @@
 
 %% The following annotation is customary for chapter which have already been
 %% published as a paper.
-\blfootnote{Parts of this chapter have been published in Annalen der Physik \textbf{324}, 289 (1906) \cite{Einstein1906}.}
+\blfootnote{Parts of this chapter have been published in Annalen der Physik \textbf{324}, 289 (1906) \autocite{Einstein1906}.}
 
 %% It is only necessary to list the authors if multiple people contributed
 %% significantly to the chapter.
@@ -136,7 +136,7 @@ This can be done with the special unnumbered footnote command \texttt{\textbacks
 For example,
 
 \begin{quote}
-\texttt{\textbackslash blfootnote\{Parts of this chapter have been published in Annalen der Physik \textbackslash textbf\{324\}, 289 (1906) \textbackslash cite \{Einstein1906\}.\}}
+\texttt{\textbackslash blfootnote\{Parts of this chapter have been published in Annalen der Physik \textbackslash textbf\{324\}, 289 (1906) \textbackslash autocite \{Einstein1906\}.\}}
 \end{quote}
 generates the footnote at the beginning of this chapter.
 Because this footnote is unnumbered, the \texttt{hyperref} package may throw a warning, which safely be ignored.
@@ -207,5 +207,14 @@ as well as the accent colors
 \item\texttt{\color{tudelft-yellow}tudelft-yellow}.
 \end{itemize}
 
-\references{0_dissertation.bib}
+\section{Citing References}
+\dropcap{T}{his} template uses \texttt{biblatex} and \texttt{biber} to manage references. There are two main citation styles that come with these packages and a custom one:
 
+\begin{enumerate}
+    \item \texttt{\backslash autocite} is the main type, like when making a claim \autocite{Einstein1906}.
+    \item \texttt{\backslash textcite} can be used for in--line citations, like when \textcite{Einstein1906} made some claim.
+    \item \texttt{\backslash posscite} is to use the author(s) as a possessive, like when talking about \posscite{Einstein1906} claim (it also works for multiple authors and when the \textit{et al.} is used. Note that ``James's'' is grammatically correct, but not ``authors's''.).
+\end{enumerate}
+
+\newpage
+\printbibliography[heading=subbibnumbered, segment=\therefsegment]

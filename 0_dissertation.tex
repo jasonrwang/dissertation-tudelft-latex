@@ -1,6 +1,9 @@
 % !TeX program = xelatex
 \documentclass{0_dissertation}
 
+% Custom definitions
+\addbibresource{0_dissertation.bib}
+
 \begin{document}
 
 %% Specify the title and author of the thesis. This information will be used on
@@ -12,7 +15,7 @@
 %% contents.
 \frontmatter
 
-\include{01_title/title}
+\input{01_title/title}
 
 %% The (optional) dedication can be used to thank someone or display a
 %% significant quotation.
@@ -20,8 +23,8 @@
 
 \tableofcontents
 
-% \include{summary/summary}
-% \include{preface/preface}
+% \input{summary/summary}
+% \input{preface/preface}
 
 %% Use Arabic numerals for the page numbers of the chapters.
 \mainmatter
@@ -29,20 +32,21 @@
 %% Turn on thumb indices.
 \thumbtrue
 
-\include{04_chapter-1/chapter-1}
-% \include{04_chapter-2/chapter-2}
-\include{05_conclusion/conclusion}
-\include{06_epilogue/epilogue}
-\include{07_acks/acks}
+\input{04_chapter-1/chapter-1}
+% \input{04_chapter-2/chapter-2}
+\input{05_conclusion/conclusion}
+\printbibliography[heading=bibnumbered]
+\input{06_epilogue/epilogue}
+\input{07_acks/acks}
 
 %% Use letters for the chapter numbers of the appendices.
 \appendix
-% \include{08_appendix-a/}
+% \input{08_appendix-a/}
 
 %% Turn off thumb indices for unnumbered chapters.
 \thumbfalse
 
-% \include{cv/cv}
-% \include{publications/publications}
+% \input{cv/cv}
+% \input{publications/publications}
 
 \end{document}

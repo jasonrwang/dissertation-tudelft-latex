@@ -7,6 +7,8 @@
 ## LaTeX
 
 - [ ] Create a file specifically for shortcut definitions (or carve out a section of another document)
+- [x] Change citation manager to biblatex!
+- [ ] Remove blank pages between each chapter
 
 ## Git
 
