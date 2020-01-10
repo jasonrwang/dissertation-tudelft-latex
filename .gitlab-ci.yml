@@ -1,0 +1,16 @@
+image: "docker"
+
+build:
+  script :
+    - echo "Building with latexmk..."
+    - ./latexdockercmd.sh latexmk -pdf -outdir=./_build
+
+deploy:
+  script:
+    - echo "Saving PDF to repo..."
+  provider: releases
+  file: _build/0_dissertation.pdf
+  skip_cleanup: true
+  on:
+    repo: jasonrwang/dissertation-tudelft-latex
+    tags: true
