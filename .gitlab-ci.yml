@@ -1,13 +1,14 @@
-image: "docker"
+image: "blang/latex:ctanfull"
 
 build:
   stage: build
   script:
     - echo "Building with latexmk..."
-    - ./latexdockercmd.sh latexmk -pdf -outdir=./
+    - latexmk -pdf -pdflatex="xelatex -interaction=nonstopmode" -use-make *.tex
   artifacts:
     paths:
       - ./*.pdf
+    expire_in: 1 week
 
 # package:
 #   stage: package
