@@ -12,7 +12,7 @@ Compiling LaTeX in the cloud has the benefit that you can ensure your file works
 
 A good practice, though not implemented in this repository because it is a template, is to keep your `master` branch clean and only do Pull Requests from other branches into `master`. Your CI/CD tools can be configured to only compile after such a Pull Request instead of for every time a repository changes!
 
-### GitLab [![GitLab CI Status](https://gitlab.com/jasonrwang/dissertation-tudelft-latex/badges/CI/pipeline.svg)](https://www.gitlab.com/jasonrwang/dissertation-tudelft-latex)
+### GitLab [![GitLab CI Status](https://gitlab.com/jasonrwang/dissertation-tudelft-latex/badges/master/pipeline.svg)](https://www.gitlab.com/jasonrwang/dissertation-tudelft-latex)
 
 GitLab has built-in CI/CD tools. If you're using this with GitLab (you need only need a GitLab account and can keep your thesis private), you'll need to configure a few things for everything to run smoothly. *If you want to use GitLab and not have it compile online, delete the* `.gitlab-ci.yml` *file*.
 
