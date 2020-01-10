@@ -9,3 +9,9 @@ These documents, as they exist, are still highly dependent on many font packages
 ## VS Code Integration
 
 I run LaTeX locally rather than through a cloud service. I intend to publish a blog post soon about why and how I've set it all up. For now, note that there is a branch called *VSCode* whose `.gitignore` file includes some VS Code-friendly entries.
+
+## Continuous Integration/Deployment
+
+### GitLab
+
+Make sure to configure an SSH key–pair, putting the public one in `Settings > Repository > Deploy Keys`, and setting `SSH_PRIVATE_KEY` in `Settings > CI / CD > Variables` ([see here fore more information](https://marcosschroh.github.io/posts/autobumping-with-gitlab/)).
