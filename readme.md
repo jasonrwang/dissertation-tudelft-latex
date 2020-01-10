@@ -14,13 +14,19 @@ A good practice, though not implemented in this repository because it is a templ
 
 ### GitLab
 
-GitLab has built-in CI/CD tools. If you're using this with GitLab, you'll need to configure a few things for everything to run smoothly. *If you want to use GitLab and not have it compile online, delete the* `.gitlab-ci.yml` *file*.
+GitLab has built-in CI/CD tools. If you're using this with GitLab (you need only need a GitLab account and can keep your thesis private), you'll need to configure a few things for everything to run smoothly. *If you want to use GitLab and not have it compile online, delete the* `.gitlab-ci.yml` *file*.
 
 First, configure an SSH key–pair (e.g. run `ssh-keygen -f deploy_key -N "" -C "ci-runner@jrwang.ca"`), where you can replace `ci-runner@jrwang.ca` with your own email. It makes sense to make this something other than your primary (GitLab) email (i.e. make it easily identifiable as a bot!).
 
  Then, copy the contents of `deploy_key.pub` in `Settings > Repository > Deploy Keys`, and those of `deploy_key` as a the value for the variable key `SSH_PRIVATE_KEY` in `Settings > CI / CD > Variables` ([see here for a more thorough walkthrough](https://marcosschroh.github.io/posts/autobumping-with-gitlab/)).
 
  With this configured, every time you commit and push your file to GitLab, it should run a job and compile your main `.tex` file (along with its inputs) into a PDF and put it onto your repository!
+
+### GitHub
+
+*Coming soon...*
+
+This option requires TravisCI or CircleCI, which means you have to make or configure more accounts. TravisCI also only provides free CI time for open–source repositories. Make sure you are OK with make your own project public if you want to go down that route.
 
 ## VS Code Integration
 
