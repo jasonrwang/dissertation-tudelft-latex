@@ -1,16 +1,30 @@
 image: "docker"
 
 build:
-  script :
+  stage: build
+  script:
     - echo "Building with latexmk..."
-    - ./latexdockercmd.sh latexmk -pdf -outdir=./_build
+    - ./latexdockercmd.sh latexmk -pdf -outdir=./
+  artifacts:
+    paths:
+      - ./*.pdf
+
+# package:
+#   stage: package
+#   script:
+#     - package... /p:Version=$CI_COMMIT_TAG
+#   only:
+#     - tags
 
 deploy:
+  stage: deploy
+  artifacts:
+    when: on_success
   script:
-    - echo "Saving PDF to repo..."
-  provider: releases
-  file: _build/0_dissertation.pdf
-  skip_cleanup: true
-  on:
-    repo: jasonrwang/dissertation-tudelft-latex
-    tags: true
+    - echo "(WIP) Saving PDF to repo..."
+
+  # file: _build/0_dissertation.pdf
+  # skip_cleanup: true
+  # on:
+  #   repo: jasonrwang/dissertation-tudelft-latex
+  #   tags: true
