@@ -6,11 +6,13 @@ The main changes in this document are that the folders are reorganized and made 
 
 These documents, as they exist, are still highly dependent on many font packages that TeXShop or some other large version of TeX comes with, but I am running it with BasicTeX. In my own repo, which I will eventually make public, I have made other modifications to the fonts, layout, and of course, content. If you have a full LaTeX distribution or compile it online (see below), then you shouldn't need to worry about this.
 
+If you are compiling locally, just run `make` in your terminal, which should run `xelatex` and `biber` a few times iteratively (automagically) until it works!
+
 ## Continuous Integration/Deployment
 
 Compiling LaTeX in the cloud has the benefit that you can ensure your file works outside of your own local environment. Though the main use will probably just be when you need to re-run everything again if you ever re–visit your thesis, if you switch computers, or if someone else wants to compile your source files for some reason.
 
-A good practice, though not implemented in this repository because it is a template, is to keep your `master` branch clean and only do Pull Requests from other branches into `master`. Your CI/CD tools can be configured to only compile after such a Pull Request instead of for every time a repository changes!
+A good practice, though not fully implemented in this repository because it is a template, is to keep your `master` branch clean and only do Pull Requests from other branches into `master`. Your CI/CD tools can be configured to only compile after such a Pull Request instead of for every time a repository changes!
 
 ### GitLab [![GitLab CI Status](https://gitlab.com/jasonrwang/dissertation-tudelft-latex/badges/master/pipeline.svg)](https://www.gitlab.com/jasonrwang/dissertation-tudelft-latex)
 
