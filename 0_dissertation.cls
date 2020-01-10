@@ -165,8 +165,8 @@
 \if@print
     %% In print mode we add a 3 mm bleed on the outside of the page.
     \geometry{
-        papersize = {173mm,246mm},
-        layoutsize = {167mm,240mm},
+        papersize = {210mm,297mm},
+        layoutsize = {204mm,291mm},
         layoutoffset = {3mm,3mm},
         bindingoffset = -3mm
     }
