@@ -1,31 +1,11 @@
-image: "blang/latex:ctanfull"
+image: ctornau/latex
 
 build:
   stage: build
   script:
-    - echo "Building with latexmk..."
     - latexmk -pdf -pdflatex="xelatex -interaction=nonstopmode" -use-make *.tex
   artifacts:
+    when: on_success
     paths:
       - ./*.pdf
     expire_in: 1 week
-
-# package:
-#   stage: package
-#   script:
-#     - package... /p:Version=$CI_COMMIT_TAG
-#   only:
-#     - tags
-
-deploy:
-  stage: deploy
-  artifacts:
-    when: on_success
-  script:
-    - echo "(WIP) Saving PDF to repo..."
-
-  # file: _build/0_dissertation.pdf
-  # skip_cleanup: true
-  # on:
-  #   repo: jasonrwang/dissertation-tudelft-latex
-  #   tags: true
