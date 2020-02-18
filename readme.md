@@ -33,3 +33,11 @@ This option requires TravisCI or CircleCI, which means you have to make or confi
 ## VS Code Integration
 
 I run LaTeX locally rather than through a cloud service. I wrote [a blog post](https://jrwang.ca/2020/01/13/latex-vscode-git/) about why and how I've set it all up. This is why the `.gitignore` file includes some VS Code-friendly entries too.
+
+## Changelog
+
+v1.2.2 References now work properly across chapters and readme updated with blog and `make clean` info
+v1.2.1 Built in continuous integration (CI)
+v1.2 Added another chapter 2 as a barebones example
+v1.1 Restructured folders and files to be git compatible
+v1.0 TU Delft Template
