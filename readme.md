@@ -6,7 +6,7 @@ The main changes in this document are that the folders are reorganized and made 
 
 These documents, as they exist, are still highly dependent on many font packages that TeXShop or some other large version of TeX comes with, but I am running it with BasicTeX. In my own repo, which I will eventually make public, I have made other modifications to the fonts, layout, and of course, content. If you have a full LaTeX distribution or compile it online (see below), then you shouldn't need to worry about this.
 
-If you are compiling locally, just run `make` in your terminal, which should run `xelatex` and `biber` a few times iteratively (automagically) until it works!
+If you are compiling locally, just run `make` in your terminal, which should run `xelatex` and `biber` a few times iteratively (automagically) until it works! `make clean` will remove all the temporary and auxiliary files in your workspace.
 
 ## Continuous Integration/Deployment
 
@@ -32,4 +32,4 @@ This option requires TravisCI or CircleCI, which means you have to make or confi
 
 ## VS Code Integration
 
-I run LaTeX locally rather than through a cloud service. I intend to publish a blog post soon about why and how I've set it all up. For now, note that there is a branch called *VSCode* whose `.gitignore` file includes some VS Code-friendly entries.
+I run LaTeX locally rather than through a cloud service. I wrote [a blog post](https://jrwang.ca/2020/01/13/latex-vscode-git/) about why and how I've set it all up. This is why the `.gitignore` file includes some VS Code-friendly entries too.
