@@ -1,4 +1,4 @@
-build:
+build: # Make the PDF from the files in the repo
   image: ctornau/latex
   stage: build
   script:
@@ -10,7 +10,7 @@ build:
     expire_in: 5 min # might not need this if deploy works
 
 
-deploy:
+deploy: # Add the new PDF to the repository
   stage: deploy
   before_script:
     - 'which ssh-agent || ( apt-get update -qy && apt-get install openssh-client -qqy )'
