@@ -18,7 +18,7 @@
 \RequirePackage[nooneline,footnotesize]{caption}
 \RequirePackage{etaremune}
 \RequirePackage{fancyhdr}
-\RequirePackage[flushmargin,hang]{footmisc}
+\RequirePackage[flushmargin,hang]{footmisc} % Allows /footref{} for repeating footnotes
 \RequirePackage{ifpdf}
 \RequirePackage{ifxetex}
 \ifxetex
@@ -49,10 +49,10 @@
 \RequirePackage[nottoc]{tocbibind}
 \RequirePackage{xcolor}
 \RequirePackage{graphicx}
-\RequirePackage{booktabs}
+\RequirePackage{booktabs} % For prettier tables
 \RequirePackage{pdflscape} % Actually rotate PDF pages
 \RequirePackage{multirow} % Better table formatting
-\RequirePackage{longtable} % Tables that span many
+\RequirePackage{longtable} % Tables that span many pages
 \RequirePackage{enumitem} % Break numbered lists up
 \RequirePackage[
     style=authoryear,
