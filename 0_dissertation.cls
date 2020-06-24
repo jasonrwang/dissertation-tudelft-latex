@@ -64,6 +64,8 @@
     ]{biblatex}
 \RequirePackage{csquotes} % Better quote management for biblatex
 \RequirePackage{cleveref} % Better cross reference management
+\RequirePackage{pdfpages} % Embed PDFs (mostly as proxy for SVG)
+\RequirePackage{listings} % For including formatted and highlighted code
 
 %% If the document is not compiled with XeLaTeX, we need to use the native
 %% fonts.
