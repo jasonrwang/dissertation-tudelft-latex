@@ -161,7 +161,7 @@
 \fi
 \colorlet{thumb}{anthracite}
 
-%% Set the paper size to 17 by 24 cm, approximately halfway between A4 and A5.
+%% Set the paper size to A4
 \if@print
     %% In print mode we add a 3 mm bleed on the outside of the page.
     \geometry{
@@ -171,7 +171,7 @@
         bindingoffset = -3mm
     }
 \else
-    \geometry{papersize={170mm,240mm}}
+    \geometry{papersize={210mm,297mm}}
 \fi
 %% We decrease the margins slightly from the default (scale = 0.7).
 \geometry{hscale=0.75,vscale=0.8}
