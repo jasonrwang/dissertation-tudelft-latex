@@ -477,12 +477,12 @@
 
 %% Create an unnumbered reference section.
 % \addto\captionsenglish{\renewcommand*\bibname{\color{title}References}}
-\newcommand*\references[1]{%
-    \bibliographystyle{0_dissertation}%
-    % \bibliographystyle{elsarticle-num}%
-    % \bibliographystyle{elsarticle-harv}%
-    \bibliography{#1}%
-}
+% \newcommand*\references[1]{%
+%     \bibliographystyle{0_dissertation}%
+%     % \bibliographystyle{elsarticle-num}%
+%     % \bibliographystyle{elsarticle-harv}%
+%     \bibliography{#1}%
+% }
 
 %% Hyperlinks are cyan, except in print mode, when they are all black.
 \hypersetup{
