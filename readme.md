@@ -36,8 +36,8 @@ I run LaTeX locally rather than through a cloud service. I wrote [a blog post](h
 
 ## Changelog
 
-v1.2.2 References now work properly across chapters and readme updated with blog and `make clean` info
-v1.2.1 Built in continuous integration (CI)
-v1.2 Added another chapter 2 as a barebones example
-v1.1 Restructured folders and files to be git compatible
-v1.0 TU Delft Template
+* v1.2.2 References now work properly across chapters and readme updated with blog and `make clean` info
+* v1.2.1 Built in continuous integration (CI)
+* v1.2 Added another chapter 2 as a barebones example
+* v1.1 Restructured folders and files to be git compatible
+* v1.0 TU Delft Template
