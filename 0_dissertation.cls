@@ -10,7 +10,7 @@
 
 \LoadClass[10pt]{book}
 
-\RequirePackage{amsmath}
+\RequirePackage{amsmath} % Gives a nice equation/math environment
 \RequirePackage{amssymb}
 %% English is the default language, but Dutch is used for some sections.
 \RequirePackage[dutch,english]{babel}
