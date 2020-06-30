@@ -29,7 +29,7 @@ all: 0_dissertation.pdf
 # missing file reference and interactively asking you for an alternative.
 
 0_dissertation.pdf: 0_dissertation.tex
-	latexmk -pdf -pdflatex="xelatex -interaction=nonstopmode" -use-make 0_dissertation.tex
+	latexmk -pdf -pdflatex="xelatex -interaction=nonstopmode" -use-make --shell-escape 0_dissertation.tex
 
 clean:
 	latexmk -CA

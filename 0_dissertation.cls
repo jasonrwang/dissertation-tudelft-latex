@@ -66,6 +66,12 @@
 \RequirePackage{cleveref} % Better cross reference management
 \RequirePackage{pdfpages} % Embed PDFs (mostly as proxy for SVG)
 \RequirePackage{listings} % For including formatted and highlighted code
+\RequirePackage{svg} % Include SVGs
+% If using macOS
+% \RequirePackage[inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape,inkscapearea=page]{svg} % Include SVGs
+\RequirePackage{trimspaces} % Required by SVG
+\RequirePackage{transparent} % Required by SVG
+\RequirePackage{catchfile} % Required by SVG
 
 %% If the document is not compiled with XeLaTeX, we need to use the native
 %% fonts.
@@ -549,3 +555,12 @@
 
 % Have non–first authors in last, first order
 \DeclareNameAlias{sortname}{family-given}
+
+% Some SVGs will have underscores in the text, which will create errors.
+% The custom \escapeus macro from https://tex.stackexchange.com/questions/20890/define-an-escape-underscore-environment
+\makeatletter
+\DeclareRobustCommand*{\escapeus}[1]{%
+    \begingroup\@activeus\scantokens{#1\endinput}\endgroup}
+\begingroup\lccode`\~=`\_\relax
+    \lowercase{\endgroup\def\@activeus{\catcode`\_=\active \let~\_}}
+\makeatother

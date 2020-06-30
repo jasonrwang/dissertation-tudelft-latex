@@ -8,6 +8,18 @@ These documents, as they exist, are still highly dependent on many font packages
 
 If you are compiling locally, just run `make` in your terminal, which should run `xelatex` and `biber` a few times iteratively (automagically) until it works! `make clean` will remove all the temporary and auxiliary files in your workspace.
 
+## Including SVGs
+
+The `svg` LaTeX package allows `\includesvg` or `\includeinkscape` to be used to directly include SVGs into the compiled document. However, this process requires many external dependencies and more steps to set up. The package's documentation is a bit confusing to read, but [this Stackoverflow post](https://tex.stackexchange.com/a/74693/201491) (of course) is a great explanation of its workflow. In summary, it requires a user to either have [Inkscape 1.0](https://inkscape.org/release/inkscape-1.0/) (previous or beta builds won't work) or [Imagemagick](https://imagemagick.org/script/download.php) installed. Both are very useful tools to have in general.
+
+If you are using macOS, there is an additional step required after you install Inkscape (that is not documented well online). You need to allow the LaTeX compiler access Inkscape through the command line either by adding the program as an alias or to PATH. On macOS Catalina, this is done with `alias inkscape="/Applications/Inkscape.app/Contents/MacOS/inkscape" && source ~/.zshrc` or `sudo ln -s /Applications/Inkscape.app/Contents/MacOS/inkscape /usr/local/bin`.
+
+Next, you will need to tell the `svg` package to load Inkscape with its absolute file path. In `0_dissertation.cls`, uncomment the line `\RequirePackage[inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape,inkscapearea=page]{svg}`.
+
+Lastly, note that if the SVG contains text (labels, titles, etc.) that contain the underscore '_', then it will make the whole compilation quite unhappy. The `svg` package can deal with some of these, but not all. In this case, one can add a flag to the package to tell it to maintain the original text. The downside here is that the font may become inconsistent.
+
+For example, to include some file named `graph.svg` (not yet included), use `\includesvg[inkscapelatex=false,width=\textwidth]{04_chapter-1/figures/graph}`.
+
 ## Continuous Integration/Deployment
 
 Compiling LaTeX in the cloud has the benefit that you can ensure your file works outside of your own local environment. Though the main use will probably just be when you need to re-run everything again if you ever re–visit your thesis, if you switch computers, or if someone else wants to compile your source files for some reason.
@@ -36,8 +48,10 @@ I run LaTeX locally rather than through a cloud service. I wrote [a blog post](h
 
 ## Changelog
 
+* v1.2.3 Now supports SVG on the fly using the LaTeX `svg` package (requires Inkscape or Imagemagick – see above)
 * v1.2.2 References now work properly across chapters and readme updated with blog and `make clean` info
 * v1.2.1 Built in continuous integration (CI)
 * v1.2 Added another chapter 2 as a barebones example
 * v1.1 Restructured folders and files to be git compatible
 * v1.0 TU Delft Template
+ 
