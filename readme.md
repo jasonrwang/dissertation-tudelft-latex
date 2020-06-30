@@ -20,6 +20,8 @@ Lastly, note that if the SVG contains text (labels, titles, etc.) that contain t
 
 For example, to include some file named `graph.svg` (not yet included), use `\includesvg[inkscapelatex=false,width=\textwidth]{04_chapter-1/figures/graph}`.
 
+This configuration will create a folder in the main working directory to store the PDF files that it generates.
+
 ## Continuous Integration/Deployment
 
 Compiling LaTeX in the cloud has the benefit that you can ensure your file works outside of your own local environment. Though the main use will probably just be when you need to re-run everything again if you ever re–visit your thesis, if you switch computers, or if someone else wants to compile your source files for some reason.
