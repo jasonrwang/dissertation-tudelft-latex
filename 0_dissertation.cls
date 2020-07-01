@@ -68,7 +68,7 @@
 \RequirePackage{listings} % For including formatted and highlighted code
 \RequirePackage{svg} % Include SVGs
 % If using macOS
-% \RequirePackage[inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape,inkscapearea=page]{svg} % Include SVGs
+% \RequirePackage[inkscapeexe=/Applications/Inkscape.app/Contents/MacOS/inkscape,inkscapearea=page,inkscapepath=svgpath]{svg} % Include SVGs
 \RequirePackage{trimspaces} % Required by SVG
 \RequirePackage{transparent} % Required by SVG
 \RequirePackage{catchfile} % Required by SVG

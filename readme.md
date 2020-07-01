@@ -20,7 +20,7 @@ Lastly, note that if the SVG contains text (labels, titles, etc.) that contain t
 
 For example, to include some file named `graph.svg` (not yet included), use `\includesvg[inkscapelatex=false,width=\textwidth]{04_chapter-1/figures/graph}`.
 
-This configuration will create a folder in the main working directory to store the PDF files that it generates.
+This configuration will create a folder in the main working directory to store the PDF files that it generates. If you prefer to have the PDF render in the same folder as the SVG file, then invoke the `inkscapepath=svgpath` parameter.
 
 ## Continuous Integration/Deployment
 
@@ -56,4 +56,3 @@ I run LaTeX locally rather than through a cloud service. I wrote [a blog post](h
 * v1.2 Added another chapter 2 as a barebones example
 * v1.1 Restructured folders and files to be git compatible
 * v1.0 TU Delft Template
- 
